@@ -13,38 +13,21 @@
     <body>
         <header>
             <div id="logo">
-                <img src="photos/Logo.png" alt="logo" class="logo-title">
+                <img src="photos/Logo.png" alt="logo" class="logo-title" />
             </div>
             <div id="header-nav">
                 <nav>
-                    <button class="navBtn">Start</button>
-                    <button class="navBtn">Vaser</button>
-                    <button class="navBtn">Tallrikar</button>
-                    <button class="navBtn">Skålar</button>
+                    <button class="navBtn" id="startBtn">Start</button>
+                    <button class="navBtn" id="vaserBtn">Vaser</button>
+                    <button class="navBtn" id="tallrikarBtn">Tallrikar</button>
+                    <button class="navBtn" id="skålarBtn">Skålar</button>
                 </nav>
                 <button id="cart" class="btn">
                     <i class="fa fa-shopping-cart"></i>
                 </button>
             </div>
         </header>
-        <main>
-            <div class="main-card">
-                <h2>Simplicity in Mind</h2>
-                <img src="photos/frontpagepic.jpg" alt="Kruka" />
-            </div>
-            <div class="product-group">
-                <div class="product-card">
-                    <img src="photos/frontpagepic2.jpg" alt="Kruka" />
-                    <p>Vas Nygren</p>
-                    <span>1599 kr</span>
-                </div>
-                <div class="product-card">
-                    <img src="photos/frontpagepic3.jpg" alt="Kruka" />
-                    <p>Vas Svenssons</p>
-                    <span>7890 kr</span>
-                </div>
-            </div>
-
+        <main id="main-page">
             <div class="info">
                 <h3>Handgjord keramik med själ och känsla</h3>
                 <p>
@@ -55,17 +38,30 @@
                     som förgyller både vardag och hem.
                 </p>
             </div>
+
+            <div class="product-group">
+                <div class="product-card">
+                    <img src="photos/frontpagepic2.jpg" alt="Kruka" />
+                    <p>Vas Nygren</p>
+                    <span>1599 kr</span>
+                    <button>Läs mer</button>
+                </div>
+                <div class="product-card">
+                    <img src="photos/frontpagepic3.jpg" alt="Kruka" />
+                    <p>Vas Svenssons</p>
+                    <span>7890 kr</span>
+                    <button>Läs mer</button>
+                </div>
+            </div>
         </main>
         <footer>
-            
             <div>
-            <button class="btn"><i class="fa fa-instagram"></i></button>
-            <button class="btn"><i class="fa fa-envelope"></i></button>
-            <button class="btn"><i class="fa fa-phone"></i></button>
+                <button class="btn"><i class="fa fa-instagram"></i></button>
+                <button class="btn"><i class="fa fa-envelope"></i></button>
+                <button class="btn"><i class="fa fa-phone"></i></button>
             </div>
 
             <p>&copy;Tilda Holm AB 2025</p>
-            
         </footer>
 
         <script src="app.js"></script>
