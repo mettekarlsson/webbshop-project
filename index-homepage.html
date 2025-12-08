@@ -17,13 +17,7 @@
             </div>
             <div id="header-nav">
                 <nav>
-                    <button
-                        class="navBtn"
-                        id="startBtn"
-                        onclick="filter('All')"
-                    >
-                        Start
-                    </button>
+                   
                     <button
                         class="navBtn"
                         id="vaserBtn"
@@ -41,18 +35,20 @@
                     <button
                         class="navBtn"
                         id="skålarBtn"
-                        onclick="filter('skål')"
+                        onclick="filter('Skålar')"
                     >
                         Skålar
                     </button>
                 </nav>
-                <button id="cart" class="btn">
+                <button id="cart" class="btn" onclick="openCart()">
                     <i class="fa fa-shopping-cart"></i>
                 </button>
             </div>
         </header>
         <main id="main-page">
             <div id="productList"></div>
+            <div id="modal"></div>
+            <div id="cartModal"></div>
         </main>
         <footer>
             <div>
