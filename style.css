@@ -8,7 +8,6 @@ body {
 }
 
 header {
-    background-color: #e4ceb3;
     display: flex;
     flex-direction: column;
 }
@@ -65,28 +64,6 @@ img {
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.main-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.product-group {
-    display: flex;
-}
-.product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.info {
-    max-width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 footer {
     background-color: #9f6826;
     text-align: center;
@@ -96,22 +73,28 @@ footer {
     padding-top: 0.8rem;
 }
 
-.newDiv {
+#productList {
     display: flex;
-    flex-grow: 1;
-    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    flex-wrap: wrap;
 }
 
 .product-div {
-    background-color: #e4ceb3;
     padding: 2rem;
+
     font-family: Georgia, "Times New Roman", Times, serif;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-width: 40%;
+}
+
+.product-img {
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem #9f8f7b;
 }
 
 .product-btn {

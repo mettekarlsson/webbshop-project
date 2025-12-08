@@ -17,10 +17,34 @@
             </div>
             <div id="header-nav">
                 <nav>
-                    <button class="navBtn" id="startBtn">Start</button>
-                    <button class="navBtn" id="vaserBtn">Vaser</button>
-                    <button class="navBtn" id="tallrikarBtn">Tallrikar</button>
-                    <button class="navBtn" id="skålarBtn">Skålar</button>
+                    <button
+                        class="navBtn"
+                        id="startBtn"
+                        onclick="filter('All')"
+                    >
+                        Start
+                    </button>
+                    <button
+                        class="navBtn"
+                        id="vaserBtn"
+                        onclick="filter('Vaser')"
+                    >
+                        Vaser
+                    </button>
+                    <button
+                        class="navBtn"
+                        id="tallrikarBtn"
+                        onclick="filter('Tallrikar')"
+                    >
+                        Tallrikar
+                    </button>
+                    <button
+                        class="navBtn"
+                        id="skålarBtn"
+                        onclick="filter('skål')"
+                    >
+                        Skålar
+                    </button>
                 </nav>
                 <button id="cart" class="btn">
                     <i class="fa fa-shopping-cart"></i>
@@ -28,31 +52,7 @@
             </div>
         </header>
         <main id="main-page">
-            <div class="info">
-                <h3>Handgjord keramik med själ och känsla</h3>
-                <p>
-                    I min lilla ateljé skapar jag keramik inspirerad av naturens
-                    former och lugna färgskalor. Varje tallrik, skål och vas är
-                    unik – formad för hand, bränd med omsorg och skapad för att
-                    användas och älskas varje dag. Här hittar du tidlösa föremål
-                    som förgyller både vardag och hem.
-                </p>
-            </div>
-
-            <div class="product-group">
-                <div class="product-card">
-                    <img src="photos/frontpagepic2.jpg" alt="Kruka" />
-                    <p>Vas Nygren</p>
-                    <span>1599 kr</span>
-                    <button>Läs mer</button>
-                </div>
-                <div class="product-card">
-                    <img src="photos/frontpagepic3.jpg" alt="Kruka" />
-                    <p>Vas Svenssons</p>
-                    <span>7890 kr</span>
-                    <button>Läs mer</button>
-                </div>
-            </div>
+            <div id="productList"></div>
         </main>
         <footer>
             <div>
