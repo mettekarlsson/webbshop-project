@@ -17,7 +17,6 @@
             </div>
             <div id="header-nav">
                 <nav>
-                   
                     <button
                         class="navBtn"
                         id="vaserBtn"
@@ -48,7 +47,19 @@
         <main id="main-page">
             <div id="productList"></div>
             <div id="modal"></div>
-            <div id="cartModal"></div>
+            <div id="cartModal">
+                <div id="cart-content">
+                    <div id="cart-header">
+                        <h1 id="cart-title">din varukorg</h1>
+                        <button onclick="closeModal()">x</button>
+                    </div>
+                    <div id="product-cart"></div>
+                    <div id="cart-footer">
+                        <span>summa:</span>
+                        <button onclick="clearCart()">töm varukorg</button>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <div>
