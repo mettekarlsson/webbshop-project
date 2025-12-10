@@ -50,13 +50,16 @@
             <div id="cartModal">
                 <div id="cart-content">
                     <div id="cart-header">
-                        <h1 id="cart-title">din varukorg</h1>
-                        <button onclick="closeModal()">x</button>
+                        <h1 id="cart-title">Din varukorg</h1>
+                        <button id="close-cart-btn" onclick="closeModal()">
+                            X
+                        </button>
                     </div>
                     <div id="product-cart"></div>
                     <div id="cart-footer">
-                        <span>summa:</span>
-                        <button onclick="clearCart()">töm varukorg</button>
+                        <span>Summa: <span id="cart-sum">0 kr</span></span>
+
+                        <button onclick="clearCart()">Töm varukorg</button>
                     </div>
                 </div>
             </div>
