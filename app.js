@@ -5,7 +5,7 @@ const main = document.querySelector("#main-page");
 const productListEl = document.querySelector("#productList");
 const modaler = document.querySelector("#modal");
 const cartModaler = document.querySelector("#cartModal");
-
+const cartProducts = document.querySelector("#product-cart");
 
 //skapar en klass för produkt-korten
 class Product {
@@ -128,7 +128,7 @@ const openModal = (id) => {
     modaler.style.display = "block";
 };
 
-window.addEventListener ("click", (event) => {
+window.addEventListener("click", (event) => {
     if (event.target == modaler) {
         modaler.style.display = "none";
     }
@@ -136,30 +136,42 @@ window.addEventListener ("click", (event) => {
     if (event.target == cartModaler) {
         cartModaler.style.display = "none";
     }
-
 });
 
-
-const cartList = [];
+let cartList = [];
 
 // funktion för att lägga till produkter i cart
 const addToCart = (id) => {
     const addtocart = productList.find((p) => p.id === id);
     cartList.push(addtocart);
-    console.log(cartList);
-};
 
+    cartProducts.innerHTML += `<div id="remove${addtocart.id}" class="product-div" > <img class="product-img"src= " ${addtocart.img}"> 
+    <h3>${addtocart.name}</h3> <span>${addtocart.price}</span> <button onclick="removeProduct(${addtocart.id})">X</button>
+    </div>`;
+};
 
 // funktion med modal om cart
 const openCart = () => {
-    cartList.forEach((prod) => {
-        cartModaler.innerHTML += `<div class="product-div" id="modal-content"> <img class="product-img"src= " ${prod.img}"> 
-        <h3>${prod.name}</h3> <span>${prod.price}</span> </div>`;
-    });
-
-    cartModaler.style.display = "block";
+    cartModaler.style.display = "flex";
 };
 
+const removeProduct = (id) => {
+    cartProducts.innerHTML = "";
+    cartList = cartList.filter((product) => product.id !== id);
+    cartList.forEach((prod) => {
+        cartProducts.innerHTML += `<div id="remove${prod.id}" class="product-div" > <img class="product-img"src= " ${prod.img}"> 
+        <h3>${prod.name}</h3> <span>${prod.price}</span> <button onclick="removeProduct(${prod.id})">X</button>
+        </div>`;
+    });
+};
+
+const clearCart = () => {
+    cartProducts.innerHTML = "";
+};
+
+const closeModal = () => {
+    cartModaler.style.display = "none";
+};
 
 //funktion som filtrerar beroende på kategori och ersätter the main div med den nya listan
 const filter = (category) => {
