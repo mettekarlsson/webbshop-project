@@ -6,6 +6,7 @@ const productListEl = document.querySelector("#productList");
 const modaler = document.querySelector("#modal");
 const cartModaler = document.querySelector("#cartModal");
 const cartProducts = document.querySelector("#product-cart");
+const cartSum = document.querySelector("#cart-sum");
 
 //skapar en klass för produkt-korten
 class Product {
@@ -25,7 +26,7 @@ class Product {
 const productList = [];
 //skapar en ny product i klassen
 const vas1 = new Product(
-    "photos/vas1.jpg",
+    "photos/vas4.jpg",
     "Vas Nygren",
     1599,
     "Läs mer...",
@@ -36,7 +37,7 @@ const vas1 = new Product(
 );
 
 const vas2 = new Product(
-    "photos/vas2.jpg",
+    "photos/frontpagepic2.jpg",
     "Vas Svensson",
     599,
     "Läs mer...",
@@ -47,7 +48,7 @@ const vas2 = new Product(
 );
 
 const vas3 = new Product(
-    "photos/vas3.jpg",
+    "photos/frontpagepic2.jpg",
     "Vas Lindquist",
     799,
     "Läs mer...",
@@ -118,8 +119,8 @@ const skål3 = new Product(
 );
 
 // Modal till varenda produkter
-const openModal = (id) => {
-    const specificmodal = productList.find((p) => p.id === id);
+const openModal = id => {
+    const specificmodal = productList.find(p => p.id === id);
     modaler.innerHTML = ` 
     <div id="modal-content" class="product-div"> <img class="product-img"src= " ${specificmodal.img}"> 
         <h3>${specificmodal.name}</h3> <span>${specificmodal.price}</span> <p> ${specificmodal.info}</p>
@@ -128,7 +129,7 @@ const openModal = (id) => {
     modaler.style.display = "block";
 };
 
-window.addEventListener("click", (event) => {
+window.addEventListener("click", event => {
     if (event.target == modaler) {
         modaler.style.display = "none";
     }
@@ -141,13 +142,24 @@ window.addEventListener("click", (event) => {
 let cartList = [];
 
 // funktion för att lägga till produkter i cart
-const addToCart = (id) => {
-    const addtocart = productList.find((p) => p.id === id);
+const addToCart = id => {
+    const addtocart = productList.find(p => p.id === id);
     cartList.push(addtocart);
 
-    cartProducts.innerHTML += `<div id="remove${addtocart.id}" class="product-div" > <img class="product-img"src= " ${addtocart.img}"> 
+    cartProducts.innerHTML += `<div id="remove${addtocart.id}" class="cart-product-card" > <img class="product-img"src= " ${addtocart.img}"> 
     <h3>${addtocart.name}</h3> <span>${addtocart.price}</span> <button onclick="removeProduct(${addtocart.id})">X</button>
     </div>`;
+    totalSum();
+    cartSum.textContent = totalSum() + " kr";
+};
+
+//funktion som räknar ut totala summan av varukorgen
+const totalSum = () => {
+    let sum = 0;
+    cartList.forEach(product => {
+        sum += product.price;
+    });
+    return sum;
 };
 
 // funktion med modal om cart
@@ -155,29 +167,35 @@ const openCart = () => {
     cartModaler.style.display = "flex";
 };
 
-const removeProduct = (id) => {
+//funktion som tar bort en specifik produkt i varukorgen
+const removeProduct = id => {
     cartProducts.innerHTML = "";
-    cartList = cartList.filter((product) => product.id !== id);
-    cartList.forEach((prod) => {
-        cartProducts.innerHTML += `<div id="remove${prod.id}" class="product-div" > <img class="product-img"src= " ${prod.img}"> 
+    cartList = cartList.filter(product => product.id !== id);
+    cartList.forEach(prod => {
+        cartProducts.innerHTML += `<div id="remove${prod.id}" class="cart-product-card" > <img class="product-img"src= " ${prod.img}"> 
         <h3>${prod.name}</h3> <span>${prod.price}</span> <button onclick="removeProduct(${prod.id})">X</button>
         </div>`;
     });
+    totalSum();
+    cartSum.textContent = totalSum() + " kr";
 };
 
+//funktion som tar bort alla produkter i varukorgen
 const clearCart = () => {
     cartProducts.innerHTML = "";
+    cartSum.textContent = "0 kr";
 };
 
+//funktion som stänger varukorgen
 const closeModal = () => {
     cartModaler.style.display = "none";
 };
 
 //funktion som filtrerar beroende på kategori och ersätter the main div med den nya listan
-const filter = (category) => {
+const filter = category => {
     productListEl.innerHTML = "";
-    const specificProduct = productList.filter((p) => p.category === category);
-    specificProduct.forEach((prod) => {
+    const specificProduct = productList.filter(p => p.category === category);
+    specificProduct.forEach(prod => {
         productListEl.innerHTML += `<div class="product-div"> <img class="product-img"src= " ${prod.img}"> 
         <h3>${prod.name}</h3> <span>${prod.price}</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
     });

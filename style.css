@@ -43,12 +43,6 @@ main {
     gap: 5rem;
 }
 
-img {
-    border-radius: 1.2rem;
-    width: 25rem;
-    height: 28rem;
-}
-
 .btn,
 .navBtn {
     background-color: #9f6826;
@@ -96,6 +90,9 @@ footer {
 
 .product-img {
     box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem #9f8f7b;
+    border-radius: 1.2rem;
+    width: 50%;
+    height: 50%;
 }
 
 .product-btn {
@@ -145,13 +142,77 @@ footer {
     background-color: white;
     overflow: auto;
     border-radius: 1rem;
-    width: 50%;
+    width: 80%;
     height: 80%;
 }
 #product-cart {
     display: flex;
     flex-direction: column;
     width: fit-content;
+    min-height: 55%;
     height: fit-content;
-    margin: 0;
+    margin: 1rem;
+    gap: 1.5rem;
+    max-width: fit-content;
+    flex-wrap: wrap;
+}
+
+#cart-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "title title title title btn";
+
+    font-size: 1rem;
+    background-color: #e4ceb3;
+}
+
+#cart-title {
+    grid-area: title;
+    text-align: center;
+}
+
+#close-cart-btn {
+    grid-area: btn;
+    height: 30%;
+    border: none;
+    margin: 0.5rem;
+    cursor: pointer;
+    background-color: #e4ceb3;
+}
+
+#cart-footer {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-weight: bold;
+    font-size: large;
+}
+
+#cart-footer button {
+    background-color: #e4ceb3;
+    border: #9f6826;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#cart-footer button:hover {
+    background-color: #9f6826;
+}
+
+.cart-product-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.cart-product-card button {
+    height: 10%;
+}
+.cart-product-card img {
+    height: 10rem;
 }
