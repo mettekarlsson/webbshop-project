@@ -8,6 +8,7 @@ const cartModaler = document.querySelector("#cartModal");
 const cartProducts = document.querySelector("#product-cart");
 const cartSum = document.querySelector("#cart-sum");
 
+
 //skapar en klass för produkt-korten
 class Product {
     constructor(img, name, price, button, category, id, info, addtoCart) {
@@ -19,6 +20,7 @@ class Product {
         this.id = id;
         this.info = info;
         this.addtoCart = addtoCart;
+        this.quantity = 1
         productList.push(this);
     }
 }
@@ -144,14 +146,44 @@ let cartList = [];
 // funktion för att lägga till produkter i cart
 const addToCart = id => {
     const addtocart = productList.find(p => p.id === id);
-    cartList.push(addtocart);
 
-    cartProducts.innerHTML += `<div id="remove${addtocart.id}" class="cart-product-card" > <img class="product-img"src= " ${addtocart.img}"> 
-    <h3>${addtocart.name}</h3> <span>${addtocart.price}</span> <button onclick="removeProduct(${addtocart.id})">X</button>
+
+    if (cartList.find(p => p.id === id)){
+        cartList.push(addtocart);
+        totalSum();
+        cartSum.textContent = totalSum() + " kr";
+        const span = document.querySelector("#span" + id)
+        let newNumber = parseInt(span.textContent);
+        newNumber++
+        span.textContent = newNumber
+
+    } else {
+        cartList.push(addtocart)
+       cartProducts.innerHTML +=  `<div id="remove${addtocart.id}" class="cart-product-card" > <img class="product-img"src= " ${addtocart.img}"> 
+    <h3>${addtocart.name}</h3> <span>${addtocart.price}</span> <button onclick="decreaseItem(${addtocart.id}, 'span${addtocart.id}')">-</button> 
+    <span id="span${addtocart.id}">1</span> <button onclick="increaseItem(${addtocart.id})"> + </button>
+    <button onclick="removeProduct(${addtocart.id})">X</button> 
     </div>`;
     totalSum();
     cartSum.textContent = totalSum() + " kr";
+    }
 };
+
+const increaseItem = (id) => {
+    addToCart(id)   
+}
+
+/* const decreaseItem = (id, span) => {
+    const decrease = cartList.findIndex(p => p.id === id);
+    const spanNum = document.querySelector(span)
+    let newNumber = parseInt(spanNum.textContent);
+    newNumber--
+    spanNum.textContent = newNumber
+    cartList.splice(decrease, 1) 
+    cartSum.textContent = totalSum() + " kr"
+    console.log(decrease)
+} */
+
 
 //funktion som räknar ut totala summan av varukorgen
 const totalSum = () => {
@@ -173,7 +205,9 @@ const removeProduct = id => {
     cartList = cartList.filter(product => product.id !== id);
     cartList.forEach(prod => {
         cartProducts.innerHTML += `<div id="remove${prod.id}" class="cart-product-card" > <img class="product-img"src= " ${prod.img}"> 
-        <h3>${prod.name}</h3> <span>${prod.price}</span> <button onclick="removeProduct(${prod.id})">X</button>
+        <h3>${prod.name}</h3> <span>${prod.price}</span> <button onclick="decreaseItem(${prod.id})">-</button> 
+    <span id="span${prod.id}">1</span> <button onclick="increaseItem(${prod.id})"> + </button>
+        <button onclick="removeProduct(${prod.id})">X</button>
         </div>`;
     });
     totalSum();
