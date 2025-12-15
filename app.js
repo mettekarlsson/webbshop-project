@@ -8,7 +8,6 @@ const cartModaler = document.querySelector("#cartModal");
 const cartProducts = document.querySelector("#product-cart");
 const cartSum = document.querySelector("#cart-sum");
 
-
 //skapar en klass för produkt-korten
 class Product {
     constructor(img, name, price, button, category, id, info, addtoCart) {
@@ -20,7 +19,7 @@ class Product {
         this.id = id;
         this.info = info;
         this.addtoCart = addtoCart;
-        this.quantity = 1
+        this.quantity = 1;
         productList.push(this);
     }
 }
@@ -120,9 +119,18 @@ const skål3 = new Product(
     "Lägg till"
 );
 
+const startSida = () => {
+    productListEl.innerHTML = "";
+    productList.forEach((prod) => {
+        productListEl.innerHTML += `<div class="product-div"> <img class="product-img"src= " ${prod.img}"> 
+        <h3>${prod.name}</h3> <span>${prod.price}</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
+    });
+};
+startSida();
+
 // Modal till varenda produkter
-const openModal = id => {
-    const specificmodal = productList.find(p => p.id === id);
+const openModal = (id) => {
+    const specificmodal = productList.find((p) => p.id === id);
     modaler.innerHTML = ` 
     <div id="modal-content" class="product-div"> <img class="product-img"src= " ${specificmodal.img}"> 
         <h3>${specificmodal.name}</h3> <span>${specificmodal.price}</span> <p> ${specificmodal.info}</p>
@@ -131,7 +139,7 @@ const openModal = id => {
     modaler.style.display = "block";
 };
 
-window.addEventListener("click", event => {
+window.addEventListener("click", (event) => {
     if (event.target == modaler) {
         modaler.style.display = "none";
     }
@@ -144,34 +152,32 @@ window.addEventListener("click", event => {
 let cartList = [];
 
 // funktion för att lägga till produkter i cart
-const addToCart = id => {
-    const addtocart = productList.find(p => p.id === id);
+const addToCart = (id) => {
+    const addtocart = productList.find((p) => p.id === id);
 
-
-    if (cartList.find(p => p.id === id)){
+    if (cartList.find((p) => p.id === id)) {
         cartList.push(addtocart);
         totalSum();
         cartSum.textContent = totalSum() + " kr";
-        const span = document.querySelector("#span" + id)
+        const span = document.querySelector("#span" + id);
         let newNumber = parseInt(span.textContent);
-        newNumber++
-        span.textContent = newNumber
-
+        newNumber++;
+        span.textContent = newNumber;
     } else {
-        cartList.push(addtocart)
-       cartProducts.innerHTML +=  `<div id="remove${addtocart.id}" class="cart-product-card" > <img class="product-img"src= " ${addtocart.img}"> 
+        cartList.push(addtocart);
+        cartProducts.innerHTML += `<div id="remove${addtocart.id}" class="cart-product-card" > <img class="product-img"src= " ${addtocart.img}"> 
     <h3>${addtocart.name}</h3> <span>${addtocart.price}</span> <button onclick="decreaseItem(${addtocart.id}, 'span${addtocart.id}')">-</button> 
     <span id="span${addtocart.id}">1</span> <button onclick="increaseItem(${addtocart.id})"> + </button>
     <button onclick="removeProduct(${addtocart.id})">X</button> 
     </div>`;
-    totalSum();
-    cartSum.textContent = totalSum() + " kr";
+        totalSum();
+        cartSum.textContent = totalSum() + " kr";
     }
 };
 
 const increaseItem = (id) => {
-    addToCart(id)   
-}
+    addToCart(id);
+};
 
 /* const decreaseItem = (id, span) => {
     const decrease = cartList.findIndex(p => p.id === id);
@@ -184,11 +190,10 @@ const increaseItem = (id) => {
     console.log(decrease)
 } */
 
-
 //funktion som räknar ut totala summan av varukorgen
 const totalSum = () => {
     let sum = 0;
-    cartList.forEach(product => {
+    cartList.forEach((product) => {
         sum += product.price;
     });
     return sum;
@@ -200,10 +205,10 @@ const openCart = () => {
 };
 
 //funktion som tar bort en specifik produkt i varukorgen
-const removeProduct = id => {
-    cartProducts.innerHTML = "";
-    cartList = cartList.filter(product => product.id !== id);
-    cartList.forEach(prod => {
+const removeProduct = (id) => {
+    /* cartProducts.innerHTML = ""; */
+    cartList = cartList.filter((product) => product.id !== id);
+    cartList.forEach((prod) => {
         cartProducts.innerHTML += `<div id="remove${prod.id}" class="cart-product-card" > <img class="product-img"src= " ${prod.img}"> 
         <h3>${prod.name}</h3> <span>${prod.price}</span> <button onclick="decreaseItem(${prod.id})">-</button> 
     <span id="span${prod.id}">1</span> <button onclick="increaseItem(${prod.id})"> + </button>
@@ -217,7 +222,11 @@ const removeProduct = id => {
 //funktion som tar bort alla produkter i varukorgen
 const clearCart = () => {
     cartProducts.innerHTML = "";
-    cartSum.textContent = "0 kr";
+    cartList = [];
+    cartSum.textContent = totalSum() + "Kr";
+
+    /* cartProducts.innerHTML = "";
+    cartSum.textContent = "0 kr"; */
 };
 
 //funktion som stänger varukorgen
@@ -226,10 +235,10 @@ const closeModal = () => {
 };
 
 //funktion som filtrerar beroende på kategori och ersätter the main div med den nya listan
-const filter = category => {
+const filter = (category) => {
     productListEl.innerHTML = "";
-    const specificProduct = productList.filter(p => p.category === category);
-    specificProduct.forEach(prod => {
+    const specificProduct = productList.filter((p) => p.category === category);
+    specificProduct.forEach((prod) => {
         productListEl.innerHTML += `<div class="product-div"> <img class="product-img"src= " ${prod.img}"> 
         <h3>${prod.name}</h3> <span>${prod.price}</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
     });
