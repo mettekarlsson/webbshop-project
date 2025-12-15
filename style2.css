@@ -1,4 +1,3 @@
-/* 
 * {
     box-sizing: border-box;
 }
@@ -8,6 +7,7 @@ body {
     margin: 0;
 }
 
+/* Page-header */
 header {
     display: flex;
     flex-direction: column;
@@ -23,6 +23,7 @@ header {
     height: 50%;
 }
 
+/* Nav bar */
 #header-nav {
     background-color: #9f6826;
     display: flex;
@@ -35,14 +36,6 @@ nav {
     gap: 2rem;
     flex-grow: 1;
     overflow: auto;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 5rem;
 }
 
 .btn,
@@ -61,70 +54,8 @@ main {
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-footer {
-    background-color: #9f6826;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding-top: 0.8rem;
-}
-
-#productList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-
-    flex-wrap: wrap;
-}
-
-.product-div {
-    
- 
-    font-family: Georgia, "Times New Roman", Times, serif;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-
-.product-btn {
-    background-color: #e4ceb3;
-    border: none;
-    text-decoration: underline;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: medium;
-    font-weight: 500;
-} 
-*/
-
-/* #modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgb(0, 0, 0, 0.4);
-}
-
-#modal-content {
-    background-color: #e4ceb3;
-    margin: 30% auto;
-    padding: 1.25rem;
-    width: 50%;
-    border-radius: 1rem;
-    display: flex;
-} */
-
-/* #cartModal {
+/* Cart Modal */
+#cartModal {
     display: none;
     position: fixed;
     justify-content: center;
@@ -138,26 +69,8 @@ footer {
     background-color: rgb(0, 0, 0);
     background-color: rgb(0, 0, 0, 0.4);
 }
-#cart-content {
-    background-color: white;
-    overflow: auto;
-    border-radius: 1rem;
-    width: 80%;
-    height: 80%;
-} */
 
-#product-cart {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    min-height: 55%;
-    height: fit-content;
-    margin: 1rem;
-    gap: 1.5rem;
-    max-width: fit-content;
-    flex-wrap: wrap;
-}
-
+/* Cart Modal header */
 #cart-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 0.1fr;
@@ -182,6 +95,30 @@ footer {
     background-color: #e4ceb3;
 }
 
+/* Main cart */
+#cart-content {
+    background-color: white;
+    overflow: auto;
+    border-radius: 1rem;
+    width: 87%;
+    height: 87%;
+}
+
+/* En div med produktkortet i cart modal */
+#product-cart {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    min-height: 55%;
+    height: fit-content;
+    margin: 1rem;
+    gap: 1.5rem;
+    max-width: fit-content;
+    flex-wrap: wrap;
+}
+
+
+/* Cart footer */
 #cart-footer {
     display: flex;
     justify-content: space-evenly;
@@ -203,34 +140,32 @@ footer {
     background-color: #9f6826;
 }
 
+/* Ett produktkort i cart modal */
 .cart-product-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap:1rem;
     flex-grow: 1;
 }
-/* 
+
+/* Div med produkt-info i Cart modal */
 #wrap-div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 10rem;
+   
     
 }
-
+/* Div med plus % minus knapp */
 #button-wrap{
     display: flex;
     gap: 2rem
 }
 
-button{
-    cursor: pointer;
-}
-
-
+/* Produkt kortet med detalj */
 .cart-product-card button {
     height: 10%;
 }
@@ -238,6 +173,7 @@ button{
     height: 10rem;
 }
 
+/* Div med cart-ikon */
 #cartDiv {
     display: flex;
 }
@@ -254,45 +190,12 @@ button{
     justify-content: center;
     align-items: center;
 }
-
+/* id till cart-ikon */
 #cart {
     padding: 0.2rem;
 }
- */
-/* .image-modal{
-    width: 20rem;
-    height: 30rem;
-    overflow: hidden;
-    display: inline-block;
-    margin: 1rem;
-    box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem #9f8f7b;
-    border-radius: 1.2rem;
-}
 
-.image-modal img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-} */
-
-/* .info-img{
-    width: 70%;
-    height: 70%;
-    overflow: hidden;
-    display: inline-block;
-    margin: 1rem;
-    box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem #9f8f7b;
-    border-radius: 1.2rem;
-}
-
-.info-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-} */
-/* 
+/* Div med bild i cart modal */
 .cart-img{
     width: 8rem;
     height: 12rem;
@@ -310,23 +213,140 @@ button{
     display: block;
 }
 
+/* Plus & minus och ta bort knapp */
 .cart-button{
     border-radius: 50%;
     border: none;
     background-color: #e4ceb3;
-} */
+}
+/* Ta bort knapp */
+#tabort-knapp{
+    border-radius: 5px;
+    padding: 5px;
+}
 
-/* .add-btn{
+/* Main-content */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+/* Div med alla produkt kort */
+#productList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+/* Varje produkt kort */
+.product-div {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+
+}
+
+/* "Läs mer" knappen */
+.product-btn {
+    background-color: #e4ceb3;
+    border: none;
+    text-decoration: underline;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: medium;
+    font-weight: 500;
+}
+
+/* Diven till produkt bild */
+.image-modal{
+    width: 10rem;
+    height: 15rem;
+    overflow: hidden;
+    display: inline-block;
+    margin: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem #9f8f7b;
+    border-radius: 1.2rem;
+}
+/* Bilden i produkt bild div */
+.image-modal img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* "Läs mer" Modal */
+#modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.4);
+}
+/* Läs mer modal */
+#modal-content {
+    background-color: #e4ceb3;
+    margin: 30% auto;
+    padding: 1.25rem;
+    width: 87%;
+    border-radius: 1rem;
+    /* display: flex; */
+    
+}
+/* Diven till bilden i modalen */
+.info-img{
+    width: 15rem;
+    height: 25rem;
+    overflow: hidden;
+    display: inline-block;
+    margin: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem #9f8f7b;
+    border-radius: 1.2rem;
+}
+/* Bilden i diven  */
+.info-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Läs mer knapp design */
+.add-btn{
     border: 0.1rem solid #9f6826; 
     background-color: #e4ceb3;
     border-radius: 0.5rem;
     padding: 0.5rem;
 }
 
-.add-btn:hover{
+/* .add-btn:hover{
     background-color: #9f6826;
 } */
 
-#prod-info{
-    max-width: 20rem;
+
+/* Alla button */
+button{
+    cursor: pointer;
+}
+
+/* Page Footer */
+footer {
+    background-color: #9f6826;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: 0.8rem;
+    margin-top: 2rem;
 }
