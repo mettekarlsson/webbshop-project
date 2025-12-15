@@ -22,6 +22,9 @@
             </div>
             <div id="header-nav">
                 <nav>
+                    <button class="navBtn" id="startBtn" onclick="startSida()">
+                        Start
+                    </button>
                     <button
                         class="navBtn"
                         id="vaserBtn"
@@ -44,9 +47,12 @@
                         Skålar
                     </button>
                 </nav>
-                <button id="cart" class="btn" onclick="openCart()">
-                    <i class="fa fa-shopping-cart"></i>
-                </button>
+                <div id="cartDiv">
+                    <button id="cart" class="btn" onclick="openCart()">
+                        <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <div id="cartCounter"></div>
+                </div>
             </div>
         </header>
         <main id="main-page">

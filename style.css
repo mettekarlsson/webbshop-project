@@ -217,3 +217,24 @@ footer {
 .cart-product-card img {
     height: 10rem;
 }
+
+#cartDiv {
+    display: flex;
+}
+
+#cartCounter {
+    background-color: white;
+    opacity: 50%;
+    border-radius: 100%;
+    height: 50%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart {
+    padding: 0.2rem;
+}
