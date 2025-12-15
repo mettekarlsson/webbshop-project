@@ -34,7 +34,7 @@ const vas1 = new Product(
     1599,
     "Vaser",
     1,
-    "Beskrivning"
+    "Skulptural vas med handdrejade detaljer. Lika vacker med en ensam blomma som utan innehåll."
 );
 
 const vas2 = new Product(
@@ -43,7 +43,7 @@ const vas2 = new Product(
     599,
     "Vaser",
     2,
-    "Beskrivning"
+    "En stilren vas med balanserad form och naturlig glasyr. Ett lugnt och tidlöst inslag i alla rum."
 );
 
 const vas3 = new Product(
@@ -52,7 +52,7 @@ const vas3 = new Product(
     799,
     "Vaser",
     3,
-    "Beskrivning"
+    "Karaktärsfull vas där hantverket får ta plats. Varje vas har sitt eget uttryck och blir ett konstverk i sig."
 );
 const tallrik1 = new Product(
     "photos/frontpagepic2.jpg",
@@ -60,7 +60,7 @@ const tallrik1 = new Product(
     678,
     "Tallrikar",
     4,
-    "Beskrivning"
+    "Handgjord tallrik med subtila ojämnheter som ger en varm, organisk känsla. Lyfter både vardags- och helgmiddagar."
 );
 const tallrik2 = new Product(
     "photos/frontpagepic2.jpg",
@@ -68,7 +68,7 @@ const tallrik2 = new Product(
     899,
     "Tallrikar",
     5,
-    "Beskrivning"
+    "En tidlös tallrik i stengods med mjuk glasyr och harmoniska proportioner. Skapad för att användas och uppskattas länge."
 );
 const tallrik3 = new Product(
     "photos/frontpagepic2.jpg",
@@ -76,7 +76,7 @@ const tallrik3 = new Product(
     988,
     "Tallrikar",
     6,
-    "Beskrivning"
+    "Rustik tallrik med ett modernt uttryck. Varje tallrik är unik och ger dukningen ett personligt uttryck."
 );
 const skål1 = new Product(
     "photos/frontpagepic2.jpg",
@@ -84,7 +84,7 @@ const skål1 = new Product(
     988,
     "Skålar",
     7,
-    "Beskrivning"
+    "En handdrejad skål med mjuka former och levande glasyr. Perfekt för frukost, snacks eller som ett dekorativt inslag i hemmet."
 );
 const skål2 = new Product(
     "photos/frontpagepic2.jpg",
@@ -92,7 +92,7 @@ const skål2 = new Product(
     988,
     "Skålar",
     8,
-    "Beskrivning"
+    "Minimalistisk skål i stengods med naturlig finish. Varje exemplar är unikt och bär spår av det hantverk som format den."
 );
 const skål3 = new Product(
     "photos/frontpagepic2.jpg",
@@ -100,32 +100,32 @@ const skål3 = new Product(
     988,
     "Skålar",
     9,
-    "Beskrivning"
+    "En robust men elegant skål med karaktär. Passar lika bra på middagsbordet som på hyllan som ett konstobjekt."
 );
 
 //funktion som visar samtliga produkter
 const startSida = () => {
     productListEl.innerHTML = "";
-    productList.forEach(prod => {
-        productListEl.innerHTML += `<div class="product-div"> <img class="product-img"src= " ${prod.img}"> 
-        <h3>${prod.name}</h3> <span>${prod.price}</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
+    productList.forEach((prod) => {
+        productListEl.innerHTML += `<div class="product-div"> <div class="image-modal"><img class="product-img"src= " ${prod.img}"> </div>
+        <h3>${prod.name}</h3> <span>${prod.price} kr</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
     });
 };
 startSida();
 
 // Modal till varje enskild produkt
-const openModal = id => {
-    const specificmodal = productList.find(p => p.id === id);
+const openModal = (id) => {
+    const specificmodal = productList.find((p) => p.id === id);
     modaler.innerHTML = ` 
-    <div id="modal-content" class="product-div"> <img class="product-img"src= " ${specificmodal.img}"> 
-        <h3>${specificmodal.name}</h3> <span>${specificmodal.price}</span> <p> ${specificmodal.info}</p>
+    <div id="modal-content" class="product-div"> <div class="info-img"><img class="product-img"src= " ${specificmodal.img}"> </div>
+        <h3>${specificmodal.name}</h3> <span>${specificmodal.price} kr</span> <p id="prod-info"> ${specificmodal.info}</p>
         <button onclick="addToCart(${specificmodal.id})" class="add-btn">${specificmodal.addtoCart}</button> </div>
     `;
     modaler.style.display = "block";
 };
 
 //funktion som stänger modalerna när du klickar utanför dom
-window.addEventListener("click", event => {
+window.addEventListener("click", (event) => {
     if (event.target == modaler) {
         modaler.style.display = "none";
     }
@@ -139,9 +139,9 @@ window.addEventListener("click", event => {
 let cartList = [];
 
 // funktion för att lägga till produkter i varukorgen
-const addToCart = id => {
-    const product = productList.find(p => p.id === id);
-    const cartItem = cartList.find(p => p.id === id);
+const addToCart = (id) => {
+    const product = productList.find((p) => p.id === id);
+    const cartItem = cartList.find((p) => p.id === id);
 
     if (cartItem) {
         cartItem.quantity += 1;
@@ -153,8 +153,8 @@ const addToCart = id => {
 };
 
 //funktion som ökar antalet av en viss produkt i varukorgen
-const increaseItem = id => {
-    const cartItem = cartList.find(p => p.id === id);
+const increaseItem = (id) => {
+    const cartItem = cartList.find((p) => p.id === id);
 
     if (cartItem) {
         cartItem.quantity += 1;
@@ -165,8 +165,8 @@ const increaseItem = id => {
 };
 
 //funktion som minskar antalet av en viss produkt i varukorgen
-const decreaseItem = id => {
-    const cartItem = cartList.find(p => p.id === id);
+const decreaseItem = (id) => {
+    const cartItem = cartList.find((p) => p.id === id);
 
     if (cartItem && cartItem.quantity > 1) {
         cartItem.quantity -= 1;
@@ -180,7 +180,7 @@ const decreaseItem = id => {
 //funktion som räknar ut totala summan av varukorgen
 const totalSum = () => {
     let sum = 0;
-    cartList.forEach(product => {
+    cartList.forEach((product) => {
         sum += product.price * product.quantity;
     });
     return sum;
@@ -192,11 +192,10 @@ const openCart = () => {
 };
 
 //funktion som tar bort en specifik produkt i varukorgen
-const removeProduct = id => {
-    cartList = cartList.filter(p => p.id !== id);
+const removeProduct = (id) => {
+    cartList = cartList.filter((p) => p.id !== id);
 
     updateCart();
-    totalSum();
     cartSum.textContent = totalSum() + " kr";
 };
 
@@ -213,11 +212,11 @@ const closeModal = () => {
 };
 
 //funktion som filtrerar beroende på kategori och ersätter the main div med den nya listan
-const filter = category => {
+const filter = (category) => {
     productListEl.innerHTML = "";
-    const specificProduct = productList.filter(p => p.category === category);
-    specificProduct.forEach(prod => {
-        productListEl.innerHTML += `<div class="product-div"> <img class="product-img"src= " ${prod.img}"> 
+    const specificProduct = productList.filter((p) => p.category === category);
+    specificProduct.forEach((prod) => {
+        productListEl.innerHTML += `<div class="product-div"> <div class="image-modal"><img class="product-img"src= " ${prod.img}"></div>
         <h3>${prod.name}</h3> <span>${prod.price}</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
     });
 };
@@ -225,15 +224,17 @@ const filter = category => {
 //funktion som uppdaterar innerHTML för varukorgen
 const updateCart = () => {
     cartProducts.innerHTML = "";
-    cartList.forEach(prod => {
+    cartList.forEach((prod) => {
         cartProducts.innerHTML += `<div id="remove${prod.id}" class="cart-product-card" >
-        <img class="product-img"src= " ${prod.img}"> 
-    <h3>${prod.name}</h3>
-    <span>${prod.price}</span>
-    <button onclick="decreaseItem(${prod.id})">-</button> 
+        <div class="cart-img"><img class="product-img"src= " ${prod.img}"> </div>
+    <div id="wrap-div"> <h3>${prod.name}</h3>
+    <span>${prod.price} kr</span>
+    <div id="buttons-wrap">
+    <button class="cart-button"onclick="decreaseItem(${prod.id})">-</button> 
     <span id="span${prod.id}">${prod.quantity}</span>
-    <button onclick="increaseItem(${prod.id})"> + </button>
-    <button onclick="removeProduct(${prod.id})">X</button> 
+    <button class="cart-button" onclick="increaseItem(${prod.id})"> + </button></div>
+    <button id="tabort-knapp" class="cart-button" onclick="removeProduct(${prod.id})">Ta bort</button>
+     </div> 
     </div>`;
     });
     cartAmount();
@@ -244,7 +245,7 @@ let counter = 0;
 //funktion som räknar ut antalet produkter i varukorgen
 const cartAmount = () => {
     counter = 0;
-    cartList.forEach(prod => {
+    cartList.forEach((prod) => {
         counter += prod.quantity;
     });
     cartCounter.innerHTML = `${counter}`;
