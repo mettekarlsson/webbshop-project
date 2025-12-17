@@ -101,13 +101,15 @@ nav {
     overflow: auto;
     border-radius: 1rem;
     width: 87%;
-    height: 87%;
+    max-height: 50%;
 }
 
 /* En div med produktkortet i cart modal */
 #product-cart {
     display: flex;
+    overflow: auto;
     flex-direction: column;
+    align-items: start;
     width: fit-content;
     min-height: 55%;
     height: fit-content;
@@ -116,7 +118,6 @@ nav {
     max-width: fit-content;
     flex-wrap: wrap;
 }
-
 
 /* Cart footer */
 #cart-footer {
@@ -145,24 +146,22 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:1rem;
+    gap: 1rem;
     flex-grow: 1;
 }
 
 /* Div med produkt-info i Cart modal */
-#wrap-div{
+#wrap-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-   
-    
 }
-/* Div med plus % minus knapp */
-#button-wrap{
+/* Div med plus & minus knapp */
+#button-wrap {
     display: flex;
-    gap: 2rem
+    gap: 2rem;
 }
 
 /* Produkt kortet med detalj */
@@ -196,7 +195,7 @@ nav {
 }
 
 /* Div med bild i cart modal */
-.cart-img{
+.cart-img {
     width: 8rem;
     height: 12rem;
     overflow: hidden;
@@ -206,7 +205,7 @@ nav {
     border-radius: 1.2rem;
 }
 
-.cart-img img{
+.cart-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -214,13 +213,13 @@ nav {
 }
 
 /* Plus & minus och ta bort knapp */
-.cart-button{
+.cart-button {
     border-radius: 50%;
     border: none;
     background-color: #e4ceb3;
 }
 /* Ta bort knapp */
-#tabort-knapp{
+#tabort-knapp {
     border-radius: 5px;
     padding: 5px;
 }
@@ -230,7 +229,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 5rem;
+    min-height: 76vh;
 }
 
 /* Div med alla produkt kort */
@@ -251,7 +252,6 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 45%;
-
 }
 
 /* "Läs mer" knappen */
@@ -265,7 +265,7 @@ main {
 }
 
 /* Diven till produkt bild */
-.image-modal{
+.image-modal {
     width: 10rem;
     height: 15rem;
     overflow: hidden;
@@ -275,7 +275,7 @@ main {
     border-radius: 1.2rem;
 }
 /* Bilden i produkt bild div */
-.image-modal img{
+.image-modal img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -302,10 +302,9 @@ main {
     width: 87%;
     border-radius: 1rem;
     /* display: flex; */
-    
 }
 /* Diven till bilden i modalen */
-.info-img{
+.info-img {
     width: 15rem;
     height: 25rem;
     overflow: hidden;
@@ -315,7 +314,7 @@ main {
     border-radius: 1.2rem;
 }
 /* Bilden i diven  */
-.info-img img{
+.info-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -323,30 +322,173 @@ main {
 }
 
 /* Läs mer knapp design */
-.add-btn{
-    border: 0.1rem solid #9f6826; 
+.add-btn {
+    border: 0.1rem solid #9f6826;
     background-color: #e4ceb3;
     border-radius: 0.5rem;
     padding: 0.5rem;
 }
 
-/* .add-btn:hover{
-    background-color: #9f6826;
-} */
-
-
 /* Alla button */
-button{
+button {
     cursor: pointer;
 }
 
 /* Page Footer */
 footer {
-    background-color: #9f6826;
-    text-align: center;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background-color: #9f6826;
+    text-align: center;
+
     padding-top: 0.8rem;
     margin-top: 2rem;
+}
+@media (min-width: 700px) {
+    .navBtn {
+        font-size: xx-large;
+        padding: 0.5rem;
+    }
+
+    #cart-header {
+        height: 20%;
+        font-size: xx-large;
+    }
+
+    #close-cart-btn {
+        font-size: xx-large;
+        padding-right: 15px;
+    }
+    /* Main cart */
+    #cart-content {
+        max-height: 70%;
+    }
+
+    #cart-footer {
+        font-size: xx-large;
+        align-items: center;
+    }
+
+    #cart-footer button {
+        font-size: xx-large;
+        padding: 1.5rem;
+        font-weight: 600;
+    }
+
+    /* En div med produktkortet i cart modal */
+
+    /* Div med produkt-info i Cart modal */
+    #wrap-div {
+        font-size: xx-large;
+    }
+    /* Div med plus % minus knapp */
+
+    .span-cart {
+        font-size: xx-large;
+    }
+
+    .cart-button {
+        font-size: xx-large;
+        padding-left: 11px;
+        padding-right: 11px;
+        text-align: center;
+    }
+    #tabort-knapp {
+        border-radius: 5px;
+        padding: 10px;
+        font-size: x-large;
+    }
+    .cart-img {
+        width: 15rem;
+        height: 19rem;
+    }
+
+    .cart-img img {
+        min-height: 100%;
+    }
+
+    /* startsida */
+    #productList {
+        justify-content: space-evenly;
+        gap: 3rem;
+    }
+    .product-div {
+        width: 35%;
+        font-size: 1.8rem;
+    }
+
+    /* "Läs mer" knappen */
+    .product-btn {
+        font-size: 1.8rem;
+    }
+
+    /* Diven till produkt bild */
+    .image-modal {
+        width: 20rem;
+        height: 25rem;
+    }
+
+    /* Läs mer modal */
+    #modal-content {
+        width: 70%;
+        height: 60%;
+        font-size: 1.8rem;
+    }
+    #prod-info {
+        width: 70%;
+    }
+    .add-btn {
+        font-size: xx-large;
+    }
+    /* Diven till bilden i modalen */
+    .info-img {
+        width: 20rem;
+        height: 30rem;
+    }
+}
+@media (min-width: 1100px) {
+    #cart-content {
+        max-height: 70%;
+    }
+    .info-img {
+        width: 28rem;
+        height: 39rem;
+    }
+    #modal-content {
+        height: 80%;
+        font-size: 2.5rem;
+    }
+    .add-btn {
+        font-size: 2.5rem;
+    }
+    .product-div {
+        width: 30%;
+    }
+}
+@media (min-width: 1500px) {
+    #productList {
+        justify-content: space-evenly;
+        gap: 5rem;
+    }
+    .product-div {
+        width: 25%;
+    }
+    .info-img {
+        width: 33rem;
+        height: 45rem;
+    }
+
+    #modal-content {
+        height: 90%;
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex-grow: 1;
+    }
+    .add-btn:hover {
+        background-color: #9f6826;
+    }
 }
