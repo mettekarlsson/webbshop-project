@@ -72,7 +72,7 @@ const tallrik2 = new Product(
 );
 const tallrik3 = new Product(
     "photos/frontpagepic2.jpg",
-    "Tallrikar Lundin",
+    "Tallrik Lundin",
     988,
     "Tallrikar",
     6,
@@ -217,7 +217,7 @@ const filter = (category) => {
     const specificProduct = productList.filter((p) => p.category === category);
     specificProduct.forEach((prod) => {
         productListEl.innerHTML += `<div class="product-div"> <div class="image-modal"><img class="product-img"src= " ${prod.img}"></div>
-        <h3>${prod.name}</h3> <span>${prod.price}</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
+        <h3>${prod.name}</h3> <span>${prod.price} kr</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
     });
 };
 
@@ -231,7 +231,7 @@ const updateCart = () => {
     <span>${prod.price} kr</span>
     <div id="buttons-wrap">
     <button class="cart-button"onclick="decreaseItem(${prod.id})">-</button> 
-    <span id="span${prod.id}">${prod.quantity}</span>
+    <span class="span-cart" id="span${prod.id}">${prod.quantity}</span>
     <button class="cart-button" onclick="increaseItem(${prod.id})"> + </button></div>
     <button id="tabort-knapp" class="cart-button" onclick="removeProduct(${prod.id})">Ta bort</button>
      </div> 
