@@ -31,16 +31,16 @@ const productList = [];
 const vas1 = new Product(
     "photos/vas4.jpg",
     "Vas Nygren",
-    1599,
+    599,
     "Vaser",
     1,
     "Skulptural vas med handdrejade detaljer. Lika vacker med en ensam blomma som utan innehåll."
 );
 
 const vas2 = new Product(
-    "photos/frontpagepic2.jpg",
-    "Vas Svensson",
-    599,
+    "photos/frontpagepic3.jpg",
+    "Vas Svenssons",
+    1599,
     "Vaser",
     2,
     "En stilren vas med balanserad form och naturlig glasyr. Ett lugnt och tidlöst inslag i alla rum."
@@ -49,55 +49,55 @@ const vas2 = new Product(
 const vas3 = new Product(
     "photos/frontpagepic2.jpg",
     "Vas Lindquist",
-    799,
+    3799,
     "Vaser",
     3,
     "Karaktärsfull vas där hantverket får ta plats. Varje vas har sitt eget uttryck och blir ett konstverk i sig."
 );
 const tallrik1 = new Product(
-    "photos/frontpagepic2.jpg",
+    "photos/Tallrik1.jpg",
     "Tallrik Holm",
-    678,
+    579,
     "Tallrikar",
     4,
     "Handgjord tallrik med subtila ojämnheter som ger en varm, organisk känsla. Lyfter både vardags- och helgmiddagar."
 );
 const tallrik2 = new Product(
-    "photos/frontpagepic2.jpg",
+    "photos/Tallrik2.jpg",
     "Tallrik Stenberg",
-    899,
+    399,
     "Tallrikar",
     5,
     "En tidlös tallrik i stengods med mjuk glasyr och harmoniska proportioner. Skapad för att användas och uppskattas länge."
 );
 const tallrik3 = new Product(
-    "photos/frontpagepic2.jpg",
+    "photos/Tallrik3.jpg",
     "Tallrik Lundin",
-    988,
+    999,
     "Tallrikar",
     6,
     "Rustik tallrik med ett modernt uttryck. Varje tallrik är unik och ger dukningen ett personligt uttryck."
 );
 const skål1 = new Product(
-    "photos/frontpagepic2.jpg",
+    "photos/Skål1.jpg",
     "Skål Lundberg",
-    988,
+    799,
     "Skålar",
     7,
     "En handdrejad skål med mjuka former och levande glasyr. Perfekt för frukost, snacks eller som ett dekorativt inslag i hemmet."
 );
 const skål2 = new Product(
-    "photos/frontpagepic2.jpg",
+    "photos/Skål2.jpg",
     "Skål Johnsson",
-    988,
+    369,
     "Skålar",
     8,
     "Minimalistisk skål i stengods med naturlig finish. Varje exemplar är unikt och bär spår av det hantverk som format den."
 );
 const skål3 = new Product(
-    "photos/frontpagepic2.jpg",
+    "photos/Skål3.jpg",
     "Skål Dahl",
-    988,
+    690,
     "Skålar",
     9,
     "En robust men elegant skål med karaktär. Passar lika bra på middagsbordet som på hyllan som ett konstobjekt."
@@ -106,6 +106,14 @@ const skål3 = new Product(
 //funktion som visar samtliga produkter
 const startSida = () => {
     productListEl.innerHTML = "";
+
+    productListEl.innerHTML += `
+        <div class="hero-container">
+        <div id="hero-text"> <p>Med fokus på det enkla</p> </div>
+        <img src="photos/startvase.jpg" alt="Start Image" class="start-img">
+        </div>`
+
+
     productList.forEach((prod) => {
         productListEl.innerHTML += `<div class="product-div"> <div class="image-modal"><img class="product-img"src= " ${prod.img}"> </div>
         <h3>${prod.name}</h3> <span>${prod.price} kr</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
