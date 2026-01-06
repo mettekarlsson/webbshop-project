@@ -113,7 +113,6 @@ const startSida = () => {
         <img src="photos/startvase.jpg" alt="Start Image" class="start-img">
         </div>`
 
-
     productList.forEach((prod) => {
         productListEl.innerHTML += `<div class="product-div"> <div class="image-modal"><img class="product-img"src= " ${prod.img}"> </div>
         <h3>${prod.name}</h3> <span>${prod.price} kr</span> <button class="product-btn" onclick="openModal(${prod.id})">${prod.button}</button> </div>`;
