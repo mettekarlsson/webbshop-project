@@ -1,5 +1,4 @@
 //hämtar in alla html-element som kommer användas
-const logoBtn = document.querySelector("#logo");
 const cart = document.querySelector("#cart");
 const main = document.querySelector("#main-page");
 const productListEl = document.querySelector("#productList");
@@ -122,7 +121,7 @@ startSida();
 
 // Modal till varje enskild produkt
 const openModal = (id) => {
-    const specificmodal = productList.find((p) => p.id === id);
+    const specificmodal = productList.find((p) => p.id === id); 
     modaler.innerHTML = ` 
     <div id="modal-content" class="product-div"> <div class="info-img"><img class="product-img"src= " ${specificmodal.img}"> </div>
         <h3>${specificmodal.name}</h3> <span>${specificmodal.price} kr</span> <p id="prod-info"> ${specificmodal.info}</p>
@@ -133,11 +132,11 @@ const openModal = (id) => {
 
 //funktion som stänger modalerna när du klickar utanför dom
 window.addEventListener("click", (event) => {
-    if (event.target == modaler) {
+    if (event.target === modaler) {
         modaler.style.display = "none";
     }
 
-    if (event.target == cartModaler) {
+    if (event.target === cartModaler) {
         cartModaler.style.display = "none";
     }
 });
@@ -177,7 +176,7 @@ const decreaseItem = (id) => {
 
     if (cartItem && cartItem.quantity > 1) {
         cartItem.quantity -= 1;
-    } else if ((cartItem.quantity = 1)) {
+    } else if ((cartItem && cartItem.quantity === 1)) {
         removeProduct(id);
     }
     updateCart();
